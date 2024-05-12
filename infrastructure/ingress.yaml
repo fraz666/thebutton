@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: thebutton-ingress
+spec:
+  rules:
+  - host: "thebutton.duckdns.org"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: webapp
+            port:
+              number: 80
